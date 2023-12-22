@@ -1,4 +1,4 @@
-import {APIProvider, Map, AdvancedMarker, Pin, Marker} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, Pin} from '@vis.gl/react-google-maps';
 import { useEffect, useState } from 'react';
 import { propertiesArr } from './utils';
 import { Button } from 'antd';
