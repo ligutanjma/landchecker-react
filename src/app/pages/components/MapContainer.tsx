@@ -10,7 +10,7 @@ interface MapProps {
   zoom?: number | undefined
 }
 function MapContainer({ center, zoom = 11, data, onClickMarker }: MapProps) {
-  console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+  // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 
   return (
     <APIProvider apiKey={process.env.REACT_APP_GOOGLE_API_KEY || ''} libraries={['marker']}>
