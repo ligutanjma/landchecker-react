@@ -29,7 +29,7 @@ function PropertyFilterDrawer() {
     )
     .map((land) => land.council)
   const handleClickListAddress = (data: Landmark) => {
-    console.log(data)
+    // console.log(data)
 
     dispatch(
       setLandmarkState({
