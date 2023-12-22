@@ -10,8 +10,10 @@ interface MapProps {
   zoom?: number | undefined
 }
 function MapContainer({ center, zoom = 11, data, onClickMarker }: MapProps) {
+  console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+
   return (
-    <APIProvider apiKey={'AIzaSyDJLRPq75prR5KiwP34gQM-K9NUenhoNIM'} libraries={['marker']}>
+    <APIProvider apiKey={process.env.REACT_APP_GOOGLE_API_KEY || ''} libraries={['marker']}>
       <Map zoom={zoom} center={center} mapId={'7975d2f5579a2197'} disableDefaultUI={true}>
         {data.map((property) => {
           const isSelected = property.latitude === center.lat && property.longitude === center.lng
