@@ -1,6 +1,7 @@
-import {APIProvider, Map, AdvancedMarker, Pin} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, Pin, Marker} from '@vis.gl/react-google-maps';
 import { useEffect, useState } from 'react';
 import { propertiesArr } from './utils';
+import { Button } from 'antd';
 
 function Landmark() {
   const [currentPos, setCurrentPos] = useState({
@@ -16,11 +17,11 @@ useEffect(() => {
   setCurrentPos(position)
 }, [])
   return (
-    <div style={{height: "100vh", width: "100%"}}>
+    <div style={{height: '100vh', width: '100%'}}>
       <APIProvider apiKey={'AIzaSyDJLRPq75prR5KiwP34gQM-K9NUenhoNIM'} libraries={['marker']}>
         
       <Map
-        zoom={40}
+        zoom={11}
         center={currentPos}
         mapId={'7975d2f5579a2197'}
 
@@ -37,11 +38,19 @@ useEffect(() => {
           lat: property.latitude,
           lng: property.longitude
         }}
+        
+        onClick={() => alert('marker was clicked!')}
         title={'AdvancedMarker with customized pin.'}>
-        <Pin
+          <Button type='link'>
+          <Pin
           background={'#22ccff'}
           borderColor={'#1e89a1'}
-          glyphColor={'#0f677a'}></Pin>
+          glyphColor={'#0f677a'}
+            
+          >
+            
+          </Pin>
+          </Button>
         </AdvancedMarker>
         ))}
       </Map>
