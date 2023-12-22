@@ -68,62 +68,6 @@ function LandmarkContainer() {
       </div>
       <PropertyDetailsDrawer />
       <PropertyFilterDrawer />
-      {/* <Drawer
-        placement='left'
-        mask={false}
-        open={openFilters}
-        onClose={handleCloseFilter}
-        contentWrapperStyle={{
-          padding: 12,
-        }}
-        style={{
-          borderRadius: 4,
-        }}
-        bodyStyle={{
-          padding: 12,
-        }}
-        title={
-          <Select
-            style={{
-              width: '100%',
-            }}
-            // value={selectedCouncil}
-            onChange={handleSelectCouncil}
-            mode={'multiple'}
-            maxTagCount={'responsive'}
-            options={initialCouncils.map((council) => ({
-              label: council,
-              value: council,
-            }))}
-            allowClear
-            onClear={onClear}
-          />
-        }
-      >
-        <Typography.Text type='secondary'>{markers.length} properties available</Typography.Text>
-        <List<string>
-          dataSource={filteredCouncils}
-          renderItem={(item) => (
-            <List.Item>
-              {item}
-              <div style={{ backgroundColor: 'rgba(0,0,0, .1)', padding: 6 }}>
-                <List
-                  dataSource={[...propertiesArr].filter((property) => property.council === item)}
-                  renderItem={(councilItem) => (
-                    <List.Item
-                      className='list-hover'
-                      style={{ padding: 6 }}
-                      onClick={() => handleClickListAddress(councilItem)}
-                    >
-                      {councilItem.full_address}
-                    </List.Item>
-                  )}
-                />
-              </div>
-            </List.Item>
-          )}
-        />
-      </Drawer> */}
       <MapContainer />
     </div>
   )
