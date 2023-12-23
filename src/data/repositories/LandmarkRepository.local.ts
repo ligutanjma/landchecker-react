@@ -4,6 +4,7 @@ import propertiesArr from './properties.json'
 
 export class LandmarkLocalImplementation implements LandmarkRepository {
   GetLandmarks(): Landmark[] {
-    return propertiesArr
+    if (!propertiesArr) return []
+    return propertiesArr as Landmark[]
   }
 }

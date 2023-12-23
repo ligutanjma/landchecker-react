@@ -43,7 +43,10 @@ const landmarkSlice = createSlice({
         state.zoom = 1
         return
       }
-      const position = { lat: propertiesArr[0].latitude || 0, lng: propertiesArr[0].longitude || 0 }
+      const position = {
+        lat: propertiesArr[0]?.latitude || 0,
+        lng: propertiesArr[0]?.longitude || 0,
+      }
       state.currentPosition = position
       state.selectedProperty = propertiesArr[0]
       state.landmarks = propertiesArr
