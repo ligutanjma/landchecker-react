@@ -1,17 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Coords } from '../../pages/Landmark'
+import { Landmark } from '../../../domain/entities/Landmark'
+import { getProperties } from './landmark.actions'
 
-export interface Landmark {
-  property_id: number
-  lga_code: number
-  council_property_number: string | null
-  full_address: string
-  council: string
-  postcode: string
-  latitude: number
-
-  longitude: number
-}
 interface LandmarkState {
   landmarks: Landmark[]
   selectedProperty?: Landmark | undefined
@@ -44,6 +35,21 @@ const landmarkSlice = createSlice({
       }
       return state
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(getProperties.fulfilled, (state, actions) => {
+      const propertiesArr = actions.payload
+      if (!propertiesArr.length) {
+        state.zoom = 1
+        return
+      }
+      const position = { lat: propertiesArr[0].latitude || 0, lng: propertiesArr[0].longitude || 0 }
+      state.currentPosition = position
+      state.selectedProperty = propertiesArr[0]
+      state.landmarks = propertiesArr
+      state.currentMarkers = propertiesArr
+      state.zoom = 11
+    })
   },
 })
 

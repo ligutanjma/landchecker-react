@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { propertiesArr } from './utils'
 import { Button } from 'antd'
 import { setLandmarkState } from '../../redux/landmark/landmark.slice'
 import MapContainer from '../components/MapContainer'
@@ -7,6 +6,7 @@ import { FaFilter } from 'react-icons/fa'
 import PropertyDetailsDrawer from './components/PropertyDetailsDrawer'
 import PropertyFilterDrawer from './components/PropertyFilterDrawer'
 import { useAppDispatch } from '../../redux/store'
+import { getProperties } from '../../redux/landmark/landmark.actions'
 export interface Coords {
   lat: number
   lng: number
@@ -22,20 +22,24 @@ function LandmarkContainer() {
       }),
     )
   }
+  // useEffect(() => {
+  //   if (!propertiesArr.length) return
+
+  //   const position = { lat: propertiesArr[0].latitude || 0, lng: propertiesArr[0].longitude || 0 }
+
+  //   dispatch(
+  //     setLandmarkState({
+  //       currentPosition: position,
+  //       selectedProperty: propertiesArr[0],
+  //       landmarks: propertiesArr,
+  //       currentMarkers: propertiesArr,
+  //     }),
+  //   )
+  // }, [propertiesArr])
+
   useEffect(() => {
-    if (!propertiesArr.length) return
-
-    const position = { lat: propertiesArr[0].latitude || 0, lng: propertiesArr[0].longitude || 0 }
-
-    dispatch(
-      setLandmarkState({
-        currentPosition: position,
-        selectedProperty: propertiesArr[0],
-        landmarks: propertiesArr,
-        currentMarkers: propertiesArr,
-      }),
-    )
-  }, [propertiesArr])
+    dispatch(getProperties())
+  }, [])
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>

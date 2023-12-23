@@ -1,8 +1,9 @@
 import React from 'react'
 import { APIProvider, AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps'
-import { Landmark, setLandmarkState } from '../../redux/landmark/landmark.slice'
+import { setLandmarkState } from '../../redux/landmark/landmark.slice'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { shallowEqual } from 'react-redux'
+import { Landmark } from '../../../domain/entities/Landmark'
 
 function MapContainer() {
   // console.log(process.env.REACT_APP_GOOGLE_API_KEY)

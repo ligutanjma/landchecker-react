@@ -1,9 +1,10 @@
 import { Drawer, Select, List, Typography } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { Landmark, setLandmarkState } from '../../../redux/landmark/landmark.slice'
+import { setLandmarkState } from '../../../redux/landmark/landmark.slice'
 import { DefaultOptionType } from 'antd/es/select'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { shallowEqual } from 'react-redux'
+import { Landmark } from '../../../../domain/entities/Landmark'
 
 // interface PropertyFilterDrawerProps {}
 function PropertyFilterDrawer() {
